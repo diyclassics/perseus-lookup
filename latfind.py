@@ -27,8 +27,9 @@ from bs4 import BeautifulSoup
 URL_BASE = "http://www.perseus.tufts.edu/hopper/morph?la=la&l="
 
 def lookup_word(word):
-    # Takes a one-word string and returns a string containing the
-    # html of the Perseus Word Study Tool entry for that word;
+    # Takes string
+    # Returns a BeautifulSoup object containing the html of the 
+    # Perseus Word Study Tool entry for that word; or
     # if the word is not found, returns -1
 
     # Get html using Requests and Beautiful Soup
@@ -36,15 +37,15 @@ def lookup_word(word):
     response = requests.get(url)
     soup = BeautifulSoup(response.text)
 
-    # Check to see if the Perseus Word Study Tool page is valid
+    # Check to see if the Perseus Word Study Tool page is valid before returning
     if len(soup.findAll(text=re.compile("no information"))) == 0:
         return soup
     else:
         return -1
 
 def get_definitions(soup):
-    # Take BeautifulSoup object and returns a list of tuples with
-    # the structure (lemma, lemma_definition)
+    # Take BeautifulSoup object
+    # Returns a list of tuples with the structure (lemma, lemma_definition)
     
     lemmas = soup.find_all('h4',attrs={'class':'la'})
     lemma_definitions = soup.find_all('span', attrs={'class':'lemma_definition'})
