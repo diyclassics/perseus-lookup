@@ -1,6 +1,9 @@
 #! /usr/bin/env python
 """
-Script to look up Latin word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
+Latfind: A simple command-Line lookup for the Perseus Latin Word Study Tool
+    cf. http://www.perseus.tufts.edu/hopper/morph?la=la
+
+Latfind is a script for looking up Latin word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
 
 e.g.
 $ python latfind.py verbum
