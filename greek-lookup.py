@@ -1,22 +1,23 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
-Grkfind: A simple command-Line lookup for the Perseus Greek Word Study Tool
+Greek-Lookup: A simple command-Line lookup for the Perseus Greek Word Study Tool
     cf. http://www.perseus.tufts.edu/hopper/morph?la=gr
 
-Grkfind is a script for looking up Greek word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
+Greek-Lookup is a script for looking up Greek word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
 
 e.g.
-$ python grkfind.py logos
+$ python greek-lookup.py logos
 $ logos > λόγος: computation, reckoning
 
 
-$ python grkfind.py dew
+$ python greek-lookup.py dew
 $ dew > δέω: bind, tie, fetter,
 $ dew > δέω2: lack, miss, stand in need of,
 $ dew > δεῖ: there is need
 
-$python grkfind.py verbum curas
+$python greek-lookup.py verbum curas
 $ logos > λόγος: computation, reckoning
 $
 $ dew > δέω: bind, tie, fetter,
@@ -31,7 +32,7 @@ import re
 from bs4 import BeautifulSoup
 
 # constants
-URL_BASE = "http://www.perseus.tufts.edu/hopper/morph?la=gr&l="
+URL_BASE = "http://www.perseus.tufts.edu/hopper/morph"
 
 def lookup_word(word):
     # Takes string
@@ -40,8 +41,8 @@ def lookup_word(word):
     # if the word is not found, returns -1
 
     # Get html using Requests and Beautiful Soup
-    url = URL_BASE + word
-    response = requests.get(url)
+    parameters = {'la': 'gr','l':word}
+    response = requests.get(URL_BASE,params=parameters)
     soup = BeautifulSoup(response.text)
 
     # Check to see if the Perseus Word Study Tool page is valid before returning

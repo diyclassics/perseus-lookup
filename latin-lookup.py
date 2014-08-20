@@ -1,19 +1,21 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
-Latfind: A simple command-Line lookup for the Perseus Latin Word Study Tool
+Latin-Lookup: A simple command-Line lookup for the Perseus Latin Word Study Tool
     cf. http://www.perseus.tufts.edu/hopper/morph?la=la
 
-Latfind is a script for looking up Latin word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
+Latin-Lookup is a script for looking up Latin word using Perseus and return a list of available short definitions. Can take multiple words as arguments. Written by @diyclassics 8.15.14.
 
 e.g.
-$ python latfind.py verbum
+$ python latin-lookup.py verbum
 $ verbum > verbum: a word 
 
-$ python latfind.py curas
+$ python latin-lookup.py curas
 $ curas > cura: trouble, care, attention, pains, industry, diligence, exertion
 $ curas > curo: to care for, take pains with, be solicitous for, look to, attend to, regard
 
-$python latfind.py verbum curas
+$python latin-lookup.py verbum curas
 $ verbum > verbum: a word 
 $
 $ curas > cura: trouble, care, attention, pains, industry, diligence, exertion
@@ -28,7 +30,7 @@ import re
 from bs4 import BeautifulSoup
 
 # constants
-URL_BASE = "http://www.perseus.tufts.edu/hopper/morph?la=la&l="
+URL_BASE = "http://www.perseus.tufts.edu/hopper/morph"
 
 def lookup_word(word):
     # Takes string
@@ -37,8 +39,8 @@ def lookup_word(word):
     # if the word is not found, returns -1
 
     # Get html using Requests and Beautiful Soup
-    url = URL_BASE + word
-    response = requests.get(url)
+    parameters = {'la': 'la','l':word}
+    response = requests.get(URL_BASE,params=parameters)
     soup = BeautifulSoup(response.text)
 
     # Check to see if the Perseus Word Study Tool page is valid before returning
