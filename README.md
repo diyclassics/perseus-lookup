@@ -16,10 +16,14 @@ I was able to use this as a command-line lookup tool (bash) by:
         - alias greek="python /[...YOUR DIRECTORY...]/greek-lookup.py"
 
 I can now use these scripts from command line as follows:
+
+```
 > latin verba
 > verba > verbum: a word
-
+```
+```
 > greek logos
 > logos > λόγος: computation, reckoning
+```
 
 I have only tested this in Mac OS 10.9.4 using Terminal (bash). Feedback, suggestions, etc. for other setups welcome.
