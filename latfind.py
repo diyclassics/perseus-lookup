@@ -18,6 +18,7 @@ $ verbum > verbum: a word
 $
 $ curas > cura: trouble, care, attention, pains, industry, diligence, exertion
 $ curas > curo: to care for, take pains with, be solicitous for, look to, attend to, 
+
 """
 
 # imports
@@ -59,7 +60,8 @@ def get_definitions(soup):
         lemma_list.append(lemma.text.strip())
             
     for lemma_definition in lemma_definitions:
-        lemma_definition_list.append(lemma_definition.text.strip())
+        lemma_definition_list.append(" ".join(lemma_definition.text.strip().split())
+)
     
     definitions = zip(lemma_list,lemma_definition_list)
     
