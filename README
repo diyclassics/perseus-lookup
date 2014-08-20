@@ -10,8 +10,8 @@ Experimenting with a way to search the Perseus Word Study Tool from the command 
 I was able to use this as a command-line lookup tool (bash) by:
 1. Making latin-lookup.py and greek-lookup.py executable
 2. Adding the following lines to .bash_profile:
-    - alias latin="python /Users/DIYClassicsAir/envs/perseus-lookup/latin-lookup.py"
-    - alias greek="python /Users/DIYClassicsAir/envs/perseus-lookup/greek-lookup.py"
+    - alias latin="python /[...YOUR DIRECTORY...]/latin-lookup.py"
+    - alias greek="python /[...YOUR DIRECTORY...]/greek-lookup.py"
 
 I can now use these scripts from command line as follows:
 > latin verba
