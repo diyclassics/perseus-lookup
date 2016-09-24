@@ -43,7 +43,7 @@ def lookup_word(word):
     # Get html using Requests and Beautiful Soup
     parameters = {'la': 'gr','l':word}
     response = requests.get(URL_BASE,params=parameters)
-    soup = BeautifulSoup(response.text)
+    soup = BeautifulSoup(response.text, 'html.parser')
 
     # Check to see if the Perseus Word Study Tool page is valid before returning
     if len(soup.findAll(text=re.compile("no information"))) == 0:
