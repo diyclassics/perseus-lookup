@@ -55,8 +55,8 @@ def get_definitions(soup):
     # Take BeautifulSoup object
     # Returns a list of tuples with the structure (lemma, lemma_definition)
     
-    lemmas = soup.find_all('h4',attrs={'class':'greek'})
-    lemma_definitions = soup.find_all('span', attrs={'class':'lemma_definition'})
+    lemmas = soup.find_all('h4',class_='greek')
+    lemma_definitions = soup.find_all('span',class_='lemma_definition')
 
     lemma_list, lemma_definition_list = [], []
     
