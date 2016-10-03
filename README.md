@@ -2,10 +2,12 @@
 Experimenting with a way to search the Perseus Word Study Tool from the command line using Python and Beautiful Soup. More description in the docstrings for both lookup scripts. Have successfully used this from the command line (using bash) by making the script executable and including an alias for each script in .bash_profile.
 
 ## Requirements
+10/3/16: Updated to Python3
+
 (Listed in requirements.txt)
 
-    - Beautiful Soup v. 4.3.2
-    - Requests v. 2.3.0
+    - Beautiful Soup v. 4.5.1
+    - Requests v. 2.11.1
 
 ## Usage
 I was able to use this as a command-line lookup tool (bash) by:
@@ -26,4 +28,4 @@ I can now use these scripts from command line as follows:
 > logos > λόγος: computation, reckoning
 ```
 
-I have only tested this in Mac OS 10.9.4 using Terminal (bash). Feedback, suggestions, etc. for other setups welcome.
+Last tested on Mac OS 10.11.6 using Terminal (bash). Feedback, suggestions, etc. for other setups welcome.
