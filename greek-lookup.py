@@ -74,16 +74,15 @@ def main(query):
     soup = lookup_word(query)
     
     if soup == -1:
-        print "No definition found for " + query + "."
+        print("No definition found for " + query + ".")
     else:
         definitions = get_definitions(soup)
         for definition in definitions:
-            print query + " > "+definition[0]+": "+definition[1]
+            print(query + " > "+definition[0]+": "+definition[1])
         
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        print "No argument given."
+        print("No argument given.")
     else:
         for item in sys.argv[1:]:
             main(item)
-            print "\n",
