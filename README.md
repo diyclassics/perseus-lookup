@@ -7,7 +7,7 @@ Experimenting with a way to search the Perseus Word Study Tool from the command 
 (Listed in requirements.txt)
 
     - Beautiful Soup v. 4.5.1
-    - Requests v. 2.11.1
+    - Requests v. 2.20.0
 
 ## Usage
 I was able to use this as a command-line lookup tool (bash) by:
