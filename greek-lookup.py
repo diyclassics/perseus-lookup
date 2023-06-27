@@ -46,7 +46,7 @@ def lookup_word(word):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Check to see if the Perseus Word Study Tool page is valid before returning
-    if len(soup.findAll(text=re.compile("no information"))) == 0:
+    if len(soup.findAll(string=re.compile("no information"))) == 0:
         return soup
     else:
         return -1
