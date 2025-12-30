@@ -1,0 +1,19 @@
+[project]
+name = "perseus-lookup"
+version = "0.2.0"
+description = "Command-line tools for searching the Perseus Word Study Tool for Greek and Latin words."
+authors = [
+    { name = "diyclassics" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "requests>=2.32.4"
+]
+
+[tool.setuptools]
+packages = ["."]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

@@ -8,13 +8,18 @@ Command-line tools for searching the Perseus Word Study Tool for Greek and Latin
 - [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Requests](https://docs.python-requests.org/en/latest/)
 
+
 Install dependencies (recommended):
 
 ```sh
-uv pip install -r requirements.txt
-# or
-pip install -r requirements.txt
+# Using uv (fastest):
+uv pip install -r pyproject.toml
+# Or with pip (PEP 621 support required):
+pip install .
 ```
+## Modern Python Project Notes
+
+- This project now uses [pyproject.toml](https://peps.python.org/pep-0621/) for dependencies and metadata, following modern Python standards.
 
 ## Usage
 
@@ -61,5 +66,5 @@ pytest
 These tests use real HTTP requests to the Perseus website. For true unit tests, consider mocking network calls.
 
 ## Change log
-- 2025-12-30: Modernized scripts, improved typing and code quality, and updated documentation.
-- 2016-10-03: Updated to Python3
+- 2025-12-30: v0.2.0 — Modernized scripts, improved typing and code quality, switched to pyproject.toml for dependency management, and updated documentation.
+- 2016-10-03: v0.1.0Updated to Python3
