@@ -1,31 +1,65 @@
 # Perseus-Lookup
-Experimenting with a way to search the Perseus Word Study Tool from the command line using Python and Beautiful Soup. More description in the docstrings for both lookup scripts. Have successfully used this from the command line (using bash) by making the script executable and including an alias for each script in .bash_profile.
+
+Command-line tools for searching the Perseus Word Study Tool for Greek and Latin words using Python and Beautiful Soup. See the docstrings in each script for more details and usage examples.
 
 ## Requirements
-10/3/16: Updated to Python3
 
-(Listed in requirements.txt)
+- Python 3.8+
+- [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [Requests](https://docs.python-requests.org/en/latest/)
 
-    - Beautiful Soup v. 4.5.1
-    - Requests v. 2.20.0
+Install dependencies (recommended):
+
+```sh
+uv pip install -r requirements.txt
+# or
+pip install -r requirements.txt
+```
 
 ## Usage
-I was able to use this as a command-line lookup tool (bash) by:
 
-    1. Making latin-lookup.py and greek-lookup.py executable
-    2. Adding the following lines to .bash_profile:
-        - alias latin="python /[...YOUR DIRECTORY...]/latin-lookup.py"
-        - alias greek="python /[...YOUR DIRECTORY...]/greek-lookup.py"
+Make the scripts executable:
 
-I can now use these scripts from command line as follows:
+```sh
+chmod +x greek_lookup.py latin_lookup.py
+```
 
+Run from the command line:
+
+```sh
+python greek_lookup.py logos
+python latin_lookup.py verbum
 ```
-> latin verba
-> verba > verbum: a word
+
+Or add aliases to your shell profile (e.g., .zshrc or .bash_profile):
+
+```sh
+alias greek='python /path/to/greek_lookup.py'
+alias latin='python /path/to/latin_lookup.py'
 ```
-```
+
+Example output:
+
+```sh
 > greek logos
-> logos > λόγος: computation, reckoning
+logos > λόγος: computation, reckoning
+
+> latin verbum
+verbum > verbum: a word
 ```
 
-Last tested on Mac OS 10.11.6 using Terminal (bash). Feedback, suggestions, etc. for other setups welcome.
+## Testing
+
+Tests are located in the `tests/` folder and use [pytest](https://docs.pytest.org/). To run the tests:
+
+```sh
+pytest
+# or, if using a virtual environment:
+.venv/bin/python -m pytest
+```
+
+These tests use real HTTP requests to the Perseus website. For true unit tests, consider mocking network calls.
+
+## Change log
+- 2025-12-30: Modernized scripts, improved typing and code quality, and updated documentation.
+- 2016-10-03: Updated to Python3
